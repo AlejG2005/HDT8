@@ -9,9 +9,7 @@ import java.io.IOException;
  También solamente acepta 'Nombre, síntoma, grado', de ser mayor o menor no lo toma en cuenta. Luego crea un objeto del tipo paciente
  y lo agrega a la cola de prioridad.*/
 public class LectorArchivo {
-    public static PriorityQueueV<Paciente> cargarPacientes(String archivo) {
-        PriorityQueueV<Paciente> cola = new PriorityQueueV<>();
-
+    public static void cargarPacientes(String archivo, IPriorityQueue<Paciente> cola) {
         try (BufferedReader br = new BufferedReader(new FileReader(archivo))) {
             String linea;
             while ((linea = br.readLine()) != null) {
@@ -28,7 +26,5 @@ public class LectorArchivo {
         } catch (IOException e) {
             System.err.println("Error al leer el archivo: " + e.getMessage());
         }
-
-        return cola;
     }
 }

@@ -1,30 +1,31 @@
 import java.util.Scanner;
 
 public class Main {
+    //Preguntamos al usuario si quiere utlizar la implementación por vectores o la del JCF. Llama al factory y lo instancia.
     public static void main(String[] args) {
-        // Cargar pacientes usando tu clase LectorArchivo
-        PriorityQueueV<Paciente> cola = LectorArchivo.cargarPacientes("pacientes.txt");
-
         Scanner scanner = new Scanner(System.in);
 
-        // Ciclo de atención de pacientes
+        System.out.println("\n¿Qué implementación deseas usar? \n 1. VectorPriorityQueue \n 2. JCF PriorityQueue");
+        int opcion = Integer.parseInt(scanner.nextLine());
+
+        IPriorityQueue<Paciente> cola = Decider.getQueue(opcion);
+        LectorArchivo.cargarPacientes("pacientes.txt", cola);
+
         while (!cola.isEmpty()) {
             System.out.println("\nLista actual de pacientes en espera:");
-            for (int i = 0; i < cola.size(); i++) {
-                System.out.println((i + 1) + ". " + cola.data.get(i));
-            }
+            cola.printQueue();
 
             System.out.print("\n¿Atender al siguiente paciente? (S/N): ");
-            String opcion = scanner.nextLine().trim().toUpperCase();
+            String resp = scanner.nextLine().trim().toUpperCase();
 
-            if (opcion.equals("S")) {
-                Paciente siguiente = cola.remove();
-                System.out.println("\nAtendiendo a: " + siguiente);
-            } else if (opcion.equals("N")) {
-                System.out.println("Fin de la atención. ¡Hasta luego!");
+            if (resp.equals("S")) {
+                Paciente p = cola.remove();
+                System.out.println("\nAtendiendo a: " + p);
+            } else if (resp.equals("N")) {
+                System.out.println("\nFin de la atención. ¡Hasta luego!");
                 break;
             } else {
-                System.out.println("Opción no válida. Intenta con 'S' o 'N'.");
+                System.out.println("\nOpción no válida.");
             }
         }
 

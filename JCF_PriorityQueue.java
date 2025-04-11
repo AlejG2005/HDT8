@@ -31,5 +31,16 @@ public class JCF_PriorityQueue<E extends Comparable<E>> implements IPriorityQueu
     public int size() {
         return JCFpq.size();
     }
+
+    //Este no es accesible por índice y no está ordenado AÚN, así que simplemente recorremos e imprimimos.
+    @Override
+    public void printQueue() {
+    int i = 1;
+        for (E e : JCFpq) {
+            System.out.println(i + ". " + e);
+            i++;
+        }
+    }
+
 }
     

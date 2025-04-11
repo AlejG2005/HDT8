@@ -43,9 +43,18 @@ public class PriorityQueueV<E extends Comparable<E>> implements IPriorityQueue<E
         return data.isEmpty();
     }
 
+    //Devuelve el tamaño de la cola.
     @Override
     public int size() {
         return data.size();
+    }
+
+    //Nos aprovechamos que es accesible por índice y recorremos toda la cola para irla imprimiendo.
+    @Override
+    public void printQueue(){
+        for (int i = 0; i < data.size(); i++) {
+            System.out.println((i + 1) + ". " + data.get(i));
+        }
     }
 
     //Subir es el método auxiliar que verifica si es menor que su padre, de serlo los intercambia. 
