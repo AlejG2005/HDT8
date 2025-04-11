@@ -1,24 +1,27 @@
 import java.util.Vector;
 
 /* Clase que contiene la implementación de una priority queue con vectores. */
-public class PriorityQueueV<E extends Comparable<E>> {
+public class PriorityQueueV<E extends Comparable<E>> implements IPriorityQueue<E> {
     protected Vector<E> data;
 
     public PriorityQueueV() {
         data = new Vector<E>();
     }
 
+    @Override
     // Agrega un elemento y lo coloca en la posición correcta.
     public void add(E value) {
         data.add(value);
         subir(data.size() - 1);
     }
 
+    @Override
     // Devuelve la raíz del heap, la prioridad más alta.
     public E getFirst() {
         return data.get(0);
     }
 
+    @Override
     // Elimina o saca la raíz reemplazandola con el último 
     public E remove() {
         if (data.isEmpty()) return null;
@@ -34,11 +37,13 @@ public class PriorityQueueV<E extends Comparable<E>> {
         return minVal;
     }
 
+    @Override
     //Devuelve si la cola está vacía.
     public boolean isEmpty() {
         return data.isEmpty();
     }
 
+    @Override
     public int size() {
         return data.size();
     }

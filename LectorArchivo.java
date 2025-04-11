@@ -3,14 +3,14 @@
 import java.io.BufferedReader;
 import java.io.FileReader;
 import java.io.IOException;
-import java.util.PriorityQueue;
+
 
 /* Contiene como método cargarPacientes que lee el archivo línea por línea y va partiendo un string cada que encuentra una coma ','
  También solamente acepta 'Nombre, síntoma, grado', de ser mayor o menor no lo toma en cuenta. Luego crea un objeto del tipo paciente
  y lo agrega a la cola de prioridad.*/
 public class LectorArchivo {
-    public static PriorityQueue<Paciente> cargarPacientes(String archivo) {
-        PriorityQueue<Paciente> cola = new PriorityQueue<>();
+    public static PriorityQueueV<Paciente> cargarPacientes(String archivo) {
+        PriorityQueueV<Paciente> cola = new PriorityQueueV<>();
 
         try (BufferedReader br = new BufferedReader(new FileReader(archivo))) {
             String linea;

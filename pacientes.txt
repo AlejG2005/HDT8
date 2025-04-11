@@ -1,0 +1,10 @@
+Juan Pérez, dolor abdominal agudo, B
+María López, fractura de brazo, D
+Carlos Jiménez, dificultad para respirar, A
+Ana Morales, fiebre persistente, C
+Luis Rodríguez, esguince de tobillo, E
+Patricia Gómez, convulsiones, A
+Sofía Ramírez, vómito y mareo, C
+Pedro Castillo, caída con golpe en la cabeza, B
+Elena Herrera, dolor en el pecho, A
+Jorge Cruz, picadura de insecto, D
